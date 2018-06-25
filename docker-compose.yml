@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    restart: unless-stopped
+    image: detrate/xonotic-docker:stable
+    command: ./server_linux.sh
+    ports:
+      - "${XONOTIC_PORT:-26000}:26000/udp"
+    volumes:
+      - "${XONOTIC_DATA:-./data/}:/root/.xonotic/data/"
